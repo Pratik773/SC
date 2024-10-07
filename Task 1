@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Navigation Menu</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            transition: background 0.3s;
+            z-index: 1000;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-item {
+            margin: 0 15px;
+        }
+
+        .nav-item a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .nav-item a:hover {
+            background: #ff6347; /* Tomato color */
+            color: white;
+        }
+
+        .content {
+            margin-top: 70px; /* To ensure content isn't hidden behind the navbar */
+            padding: 20px;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: rgba(242, 242, 242, 0.8); /* Default background for sections */
+        }
+
+        /* Optional: Add a dark overlay for better text visibility */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: 1;
+        }
+
+        h1 {
+            z-index: 2; /* Ensure text is above the overlay */
+            text-align: center;
+        }
+
+        img {
+            max-width: 1000%; /* Responsive image */
+            height: 10%;
+            border: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="#home">Home</a></li>
+            <li class="nav-item"><a href="#about">About</a></li>
+            <li class="nav-item"><a href="#services">Shop</a></li>
+            <li class="nav-item"><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <section id="home">
+            <div class="overlay"></div>
+            <h1></h1>
+            <a href="https://www.example.com" target="_blank">
+                <img src="https://styletheweb.com/gallery/Design-Tips-for-Your-Online-Boutique-Website.jpeg" alt="Description of the homepage image"style="width: 100%; height: auto;">
+            </a>
+        </section>
+        <section id="about">
+            <h1></h1>
+            <a href="https://www.example.com/about" target="_blank">
+                <img src="https://www.impactplus.com/hs-fs/hubfs/blog-image-uploads/best-about-us-pages.jpg?length=1200&name=best-about-us-pages.jpg" alt="Description of the about image"style="width: 100%; height: auto;">
+            </a>
+        </section>
+        <section id="services">
+            <h1></h1>
+            <a href="https://www.example.com/about" target="_blank">
+                <img src="https://static.vecteezy.com/system/resources/previews/003/093/143/non_2x/shopping-online-vector.jpg" alt="Description of the about image"style="width: 100%; height: auto;">
+            </a></section>
+        <section id="contact"><h1></h1><a href="https://www.example.com/about" target="_blank">
+            <img src="https://cdn.searchenginejournal.com/wp-content/uploads/2022/09/website-63106702b9ac0-sej-scaled.jpg" alt="Description of the about image"style="width: 100%; height: auto;">
+        </a></section>
+    </div>
+
+    <script>
+        // Active link highlighting script
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-item a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute("id");
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${current}`) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
