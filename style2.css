@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #aff592;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: rgb(122, 236, 145);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+input[type="datetime-local"] {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #9fecb0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.editable {
+    display: flex;
+}
+
+.edit-input {
+    flex: 1;
+    margin-right: 10px;
+}
